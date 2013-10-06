@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="CheckCheckIn" default="install" basedir=".">
 
-    <target name="install" description="Installs the app" depends="installComposer, installVendorDev"/>
+    <target name="install" description="Installs the app" depends="installComposer, installVendorDev, test"/>
 
     <!-- composer -->
     <target name="installComposer" depends="installComposer.check" unless="installComposer.pharExists" description="Installs composer.phar">
@@ -29,6 +29,12 @@
             <arg value="composer.phar" />
             <arg value="install" />
             <arg value="--dev" />
+        </exec>
+    </target>
+    <!-- /vendor -->
+
+    <target name="test" description="Runs tests">
+        <exec executable="vendor/bin/phpunit">
         </exec>
     </target>
 

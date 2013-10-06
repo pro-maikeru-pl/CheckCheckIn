@@ -1,0 +1,13 @@
+<phpunit colors="true"
+         bootstrap="vendor/autoload.php"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         forceCoversAnnotation="true"
+>
+    <testsuites>
+        <testsuite name="CheckCheckIn">
+            <directory>src</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
