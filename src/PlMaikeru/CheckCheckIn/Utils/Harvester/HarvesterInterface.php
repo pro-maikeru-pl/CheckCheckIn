@@ -5,4 +5,5 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor;
 interface HarvesterInterface
 {
     public function harvest(Executor $executor);
+    public function addSubharvester(HarvesterInterface $subharvester);
 }

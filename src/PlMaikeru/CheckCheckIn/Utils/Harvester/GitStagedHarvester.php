@@ -2,7 +2,7 @@
 namespace PlMaikeru\CheckCheckIn\Utils\Harvester;
 use \PlMaikeru\CheckCheckIn\Utils\Executor;
 
-class GitStagedHarvester implements HarvesterInterface
+class GitStagedHarvester extends GenericHarvester
 {
     public function harvest(Executor $executor)
     {

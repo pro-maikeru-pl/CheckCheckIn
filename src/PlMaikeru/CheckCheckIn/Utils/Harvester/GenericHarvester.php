@@ -7,10 +7,15 @@ class GenericHarvester implements HarvesterInterface
     private $subharvesters;
     public function __construct()
     {
-        $this->subharvesters = new \ArrayObject();
+        $this->subharvesters = array();
     }
     public function harvest(Executor $executor)
     {
+        $result = array();
+        foreach ($this->subharvesters as $harvester) {
+            $result = array_merge($result, $harvester->harvest($executor));
+        }
+        return array_values(array_unique($result));
     }
     public function addSubharvester(HarvesterInterface $subharvester)
     {
@@ -19,7 +24,7 @@ class GenericHarvester implements HarvesterInterface
                 return;
             }
         }
-        $this->subharvesters->append($subharvester);
+        $this->subharvesters[] = $subharvester;
     }
     public function getSubharvesters()
     {
