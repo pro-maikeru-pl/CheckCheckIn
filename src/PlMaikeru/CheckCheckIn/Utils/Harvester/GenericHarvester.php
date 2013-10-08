@@ -4,7 +4,7 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor;
 
 class GenericHarvester implements HarvesterInterface
 {
-    private $subharvesters;
+    protected $subharvesters;
     public function __construct()
     {
         $this->subharvesters = array();
@@ -15,7 +15,7 @@ class GenericHarvester implements HarvesterInterface
         foreach ($this->subharvesters as $harvester) {
             $result = array_merge($result, $harvester->harvest($executor));
         }
-        return array_values(array_unique($result));
+        return $result;
     }
     public function addSubharvester(HarvesterInterface $subharvester)
     {

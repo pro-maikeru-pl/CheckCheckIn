@@ -1,16 +1,16 @@
 <?php
 namespace PlMaikeru\CheckCheckIn\Test\Utils\Harvester;
-use \PlMaikeru\CheckCheckIn\Utils\Harvester\GitModifiedHarvester;
+use \PlMaikeru\CheckCheckIn\Utils\Harvester\GitModifiedLeaf;
 use \Mockery as m;
 /**
- * @covers \PlMaikeru\CheckCheckIn\Utils\Harvester\GitModifiedHarvester
+ * @covers \PlMaikeru\CheckCheckIn\Utils\Harvester\GitModifiedLeaf
  *
  */
-class GitModifiedHarvesterShould extends HarvesterTestCase
+class GitModifiedLeafShould extends HarvesterTestCase
 {
     protected function getHarvester()
     {
-        return new GitModifiedHarvester();
+        return new GitModifiedLeaf();
     }
     /**
      * @test

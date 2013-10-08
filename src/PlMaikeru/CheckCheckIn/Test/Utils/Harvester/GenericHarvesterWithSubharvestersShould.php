@@ -6,7 +6,7 @@ use \Mockery as m;
  * @covers \PlMaikeru\CheckCheckIn\Utils\Harvester\GenericHarvester
  *
  */
-class GenericHarvesterWithTwoSubharvestersShould extends HarvesterTestCase
+class GenericHarvesterWithSubharvestersShould extends HarvesterTestCase
 {
     private $harvester;
     private $subharvester1;
@@ -41,18 +41,18 @@ class GenericHarvesterWithTwoSubharvestersShould extends HarvesterTestCase
     /**
      * @test
      */
-    public function returnResultAsDistinctSumOfAllSubharvestersResults()
+    public function returnResultAsSumOfAllSubharvestersResults()
     {
         $this->subharvester1->shouldReceive('harvest')->andReturn(array('foo'));
         $this->subharvester2->shouldReceive('harvest')->andReturn(array('bar', 'foo'));
         $this->subharvester3->shouldReceive('harvest')->andReturn(array('bar', 'baz', 'goo'));
-        $expected = array('foo', 'bar', 'baz', 'goo');
+        $expected = array('foo', 'bar', 'foo', 'bar', 'baz', 'goo');
         $this->assertSame($expected, $this->harvester->harvest($this->executor));
     }
     /**
      * @test
      */
-    public function returnEmptyResultInAllSubharvestersReturnedEmptyResult()
+    public function returnEmptyResultIfAllSubharvestersReturnedEmptyResult()
     {
         $this->subharvester1->shouldReceive('harvest')->andReturn(array());
         $this->subharvester2->shouldReceive('harvest')->andReturn(array());
