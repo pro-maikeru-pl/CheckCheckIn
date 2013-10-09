@@ -34,7 +34,7 @@ class GenericHarvester implements HarvesterInterface
     }
 
 
-    private function getExecutor(Executor $executor = null)
+    public function getExecutor(Executor $executor = null)
     {
         $result = (null === $executor) ? $this->executor : $executor;
         return $result;

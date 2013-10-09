@@ -10,7 +10,7 @@ class GenericHarvesterShould extends HarvesterTestCase
 {
     protected function getHarvester()
     {
-        return new GenericHarvester();
+        return new GenericHarvester($this->executor);
     }
     /**
      * @test
@@ -45,5 +45,22 @@ class GenericHarvesterShould extends HarvesterTestCase
         $harvester->addSubharvester($subHarvester1);
         $expected = array($subHarvester1);
         $this->assertEquals($expected, $harvester->getSubharvesters());
+    }
+    /**
+     * @test
+     */
+    public function storeExecutor()
+    {
+        $harvester = $this->getHarvester();
+        $this->assertSame($this->executor, $harvester->getExecutor());
+    }
+    /**
+     * @test
+     */
+    public function useCustomExecutorWhenPassedWhileGettingOne()
+    {
+        $newExecutor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor');
+        $harvester = $this->getHarvester();
+        $this->assertSame($newExecutor, $harvester->getExecutor($newExecutor));
     }
 }

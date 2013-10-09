@@ -21,9 +21,18 @@ class HarvesterBuilderShould extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function createHarvesterListingStagesFiles()
+    public function createHarvesterListingStagingFiles()
     {
         $harvester = $this->builder->buildGitStaged();
         $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\FilesHarvester', $harvester);
+        $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\GitStagedLeaf', array_pop($harvester->getSubharvesters()));
+    }
+    /**
+     * @test
+     */
+    public function injectItsExecutorWhileCreatingHarvesters()
+    {
+        $harvester = $this->builder->buildGitStaged();
+        $this->assertSame($this->executor, $harvester->getExecutor());
     }
 }
