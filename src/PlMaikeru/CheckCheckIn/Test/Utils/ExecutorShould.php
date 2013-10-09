@@ -1,9 +1,9 @@
 <?php
 namespace PlMaikeru\CheckCheckIn\Test\Utils;
-use \PlMaikeru\CheckCheckIn\Utils\Executor;
+use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
 
 /**
- * @covers \PlMaikeru\CheckCheckIn\Utils\Executor
+ * @covers \PlMaikeru\CheckCheckIn\Utils\Executor\Executor
  *
  */
 class ExecutorShould extends \PHPUnit_Framework_TestCase

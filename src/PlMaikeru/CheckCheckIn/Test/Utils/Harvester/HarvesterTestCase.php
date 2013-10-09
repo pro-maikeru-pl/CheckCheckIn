@@ -7,7 +7,7 @@ abstract class HarvesterTestCase extends \PHPUnit_Framework_TestCase
     protected $executor;
     public function setUp()
     {
-        $this->executor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor');
+        $this->executor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor\Executor');
     }
     public function tearDown()
     {

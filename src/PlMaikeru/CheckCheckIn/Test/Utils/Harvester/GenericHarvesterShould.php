@@ -59,7 +59,7 @@ class GenericHarvesterShould extends HarvesterTestCase
      */
     public function useCustomExecutorWhenPassedWhileGettingOne()
     {
-        $newExecutor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor');
+        $newExecutor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor\Executor');
         $harvester = $this->getHarvester();
         $this->assertSame($newExecutor, $harvester->getExecutor($newExecutor));
     }

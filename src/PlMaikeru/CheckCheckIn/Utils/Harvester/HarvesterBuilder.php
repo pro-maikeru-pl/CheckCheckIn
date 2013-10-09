@@ -1,6 +1,6 @@
 <?php
 namespace PlMaikeru\CheckCheckIn\Utils\Harvester;
-use \PlMaikeru\CheckCheckIn\Utils\Executor;
+use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
 use \PlMaikeru\CheckCheckIn\Utils\Harvester\FilesHarvester;
 
 class HarvesterBuilder

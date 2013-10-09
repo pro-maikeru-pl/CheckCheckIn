@@ -15,7 +15,7 @@ class HarvesterBuilderShould extends \PHPUnit_Framework_TestCase
     private $executor;
     public function setUp()
     {
-        $this->executor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor');
+        $this->executor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor\Executor');
         $this->builder = new HarvesterBuilder($this->executor);
     }
     /**

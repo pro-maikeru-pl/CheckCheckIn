@@ -1,5 +1,5 @@
 <?php
-namespace PlMaikeru\CheckCheckIn\Utils;
+namespace PlMaikeru\CheckCheckIn\Utils\Executor;
 
 class Executor
 {
