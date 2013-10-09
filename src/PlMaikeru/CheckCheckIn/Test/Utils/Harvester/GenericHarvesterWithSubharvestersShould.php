@@ -6,7 +6,7 @@ use \Mockery as m;
  * @covers \PlMaikeru\CheckCheckIn\Utils\Harvester\GenericHarvester
  *
  */
-class GenericHarvesterWithSubharvestersButWithoutExecutorShould extends HarvesterTestCase
+class GenericHarvesterWithSubharvestersShould extends HarvesterTestCase
 {
     private $harvester;
     private $subharvester1;

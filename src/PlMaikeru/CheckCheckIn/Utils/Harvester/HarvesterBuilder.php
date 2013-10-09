@@ -10,10 +10,31 @@ class HarvesterBuilder
     {
         $this->executor = $executor;
     }
+
     public function buildGitStaged()
     {
-        $harvester = new FilesHarvester($this->executor);
+        $harvester = $this->prepareHarvester();
         $harvester->addSubharvester(new GitStagedLeaf());
         return $harvester;
+    }
+
+    public function buildGitModified()
+    {
+        $harvester = $this->prepareHarvester();
+        $harvester->addSubharvester(new GitModifiedLeaf());
+        return $harvester;
+    }
+
+    public function buildGitModifiedAndStaged()
+    {
+        $harvester = $this->prepareHarvester();
+        $harvester->addSubharvester(new GitModifiedLeaf());
+        $harvester->addSubharvester(new GitStagedLeaf());
+        return $harvester;
+    }
+
+    private function prepareHarvester()
+    {
+        return new FilesHarvester($this->executor);
     }
 }

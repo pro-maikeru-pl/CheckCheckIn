@@ -26,7 +26,7 @@ class GenericHarvesterWithSubharvestersAndExecutorShould extends HarvesterTestCa
     /**
      * @test
      */
-    public function useExecutorPassedInConstructorIfNoExecutorPassedDuringHarvesting()
+    public function whenHarvestingUseExecutorPassedInConstructorIfNoOtherPassed()
     {
         $this->subharvester1->shouldReceive('harvest')->with($this->executor)->once()->andReturn(array());
         $this->harvester->harvest();
@@ -34,7 +34,7 @@ class GenericHarvesterWithSubharvestersAndExecutorShould extends HarvesterTestCa
     /**
      * @test
      */
-    public function useExecutorPassedDuringHarvestingDespiteOnePreviousleSetInConstructor()
+    public function whenHarvestingIgnoreConstructorExecutorIfAnotherPassedToMethod()
     {
         $newExecutor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor');
         $this->subharvester1->shouldReceive('harvest')->with($newExecutor)->once()->andReturn(array());
