@@ -26,6 +26,7 @@
             <exclude>
                 <directory suffix="Should.php">src</directory>
                 <directory suffix="Test.php">src</directory>
+                <directory suffix="TestCase.php">src</directory>
             </exclude>
         </whitelist>
     </filter>

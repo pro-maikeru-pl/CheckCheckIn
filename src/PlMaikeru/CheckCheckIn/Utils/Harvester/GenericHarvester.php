@@ -6,7 +6,7 @@ class GenericHarvester implements HarvesterInterface
 {
     protected $executor;
     protected $subharvesters;
-    
+
     public function __construct(Executor $executor = null)
     {
         $this->executor = $executor;
