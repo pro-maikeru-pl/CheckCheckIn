@@ -18,14 +18,14 @@
 
     <!-- vendor -->
     <target name="installVendor" description="Dependencies">
-        <exec executable="/usr/bin/php">
+        <exec executable="php">
             <arg value="composer.phar" />
             <arg value="install" />
         </exec>
     </target>
 
     <target name="installVendorDev" description="Dependencies with development dependencies">
-        <exec executable="/usr/bin/php">
+        <exec executable="php">
             <arg value="composer.phar" />
             <arg value="install" />
             <arg value="--dev" />
