@@ -26,11 +26,11 @@ class Executor
     private function throwExceptionIfError()
     {
         if ($this->returnCode !== 0) {
-            throw new \RuntimeException($this->prepareExceptionMessage($this->command, $this->output));
+            throw new \RuntimeException($this->prepareExceptionMessage());
         }
     }
-    private function prepareExceptionMessage($command, array $output)
+    private function prepareExceptionMessage()
     {
-        return 'Error when executing command ' . $command . '. RESULT: ' . var_export($output, true);
+        return 'Error when executing command ' . $this->command . '. RESULT: ' . var_export($this->output, true);
     }
 }
