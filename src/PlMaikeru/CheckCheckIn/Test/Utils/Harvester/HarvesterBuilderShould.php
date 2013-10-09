@@ -16,13 +16,14 @@ class HarvesterBuilderShould extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->executor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor');
-        $this->builder = new HarvesterBuilder();
+        $this->builder = new HarvesterBuilder($this->executor);
     }
     /**
      * @test
      */
-    public function foo()
+    public function createHarvesterListingStagesFiles()
     {
-        $this->markTestIncomplete('builder TODO - will create and return prepared harvesters');
+        $harvester = $this->builder->buildGitStaged();
+        $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\FilesHarvester', $harvester);
     }
 }
