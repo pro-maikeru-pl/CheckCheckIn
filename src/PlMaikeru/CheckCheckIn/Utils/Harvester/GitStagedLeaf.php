@@ -2,10 +2,10 @@
 namespace PlMaikeru\CheckCheckIn\Utils\Harvester;
 use \PlMaikeru\CheckCheckIn\Utils\Executor;
 
-class GitStagedLeaf implements HarvesterInterface
+class GitStagedLeaf extends Leaf
 {
-    public function harvest(Executor $executor)
+    public function getCommand()
     {
-        return $executor->exec('git diff-index --cached --name-only HEAD');
+        return 'git diff-index --cached --name-only HEAD';
     }
 }

@@ -4,13 +4,16 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor;
 
 class GenericHarvester implements HarvesterInterface
 {
+    protected $executor;
     protected $subharvesters;
-    public function __construct()
+    public function __construct(Executor $executor = null)
     {
+        $this->executor = $executor;
         $this->subharvesters = array();
     }
-    public function harvest(Executor $executor)
+    public function harvest(Executor $executor = null)
     {
+        $executor = (null === $executor) ? $this->executor : $executor;
         $result = array();
         foreach ($this->subharvesters as $harvester) {
             $result = array_merge($result, $harvester->harvest($executor));

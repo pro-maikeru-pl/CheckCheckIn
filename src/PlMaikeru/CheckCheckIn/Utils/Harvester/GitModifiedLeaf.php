@@ -2,10 +2,10 @@
 namespace PlMaikeru\CheckCheckIn\Utils\Harvester;
 use \PlMaikeru\CheckCheckIn\Utils\Executor;
 
-class GitModifiedLeaf implements HarvesterInterface
+class GitModifiedLeaf extends Leaf
 {
-    public function harvest(Executor $executor)
+    public function getCommand()
     {
-        return $executor->exec('git ls-files --modified');
+        return 'git ls-files --modified';
     }
 }

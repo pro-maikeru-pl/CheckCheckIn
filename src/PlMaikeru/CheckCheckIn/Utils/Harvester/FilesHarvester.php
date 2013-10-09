@@ -4,7 +4,7 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor;
 
 class FilesHarvester extends GenericHarvester
 {
-    public function harvest(Executor $executor)
+    public function harvest(Executor $executor = null)
     {
         return array_values(array_unique(parent::harvest($executor)));
     }

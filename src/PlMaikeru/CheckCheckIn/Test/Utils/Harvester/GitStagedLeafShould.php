@@ -20,6 +20,13 @@ class GitStagedLeafShould extends HarvesterTestCase
         $execResult = array('foo');
         $this->executor->shouldReceive('exec')->with('git diff-index --cached --name-only HEAD')->once()->andReturn($execResult);
         $this->assertSame($execResult, $this->getHarvester()->harvest($this->executor));
-
+    }
+    /**
+     * @test
+     * @expectedException \InvalidArgumentException
+     */
+    public function throwExceptionIfNoExecutorPassed()
+    {
+        $this->getHarvester()->harvest();
     }
 }
