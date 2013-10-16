@@ -33,31 +33,31 @@ class GenericParserWithSubparsersShould extends ParserTestCase
      */
     public function parseUsingSameExecutorOnAllSubparsersWhenHarvestCalled()
     {
-        $this->subparser1->shouldReceive('parse')->with($this->executor)->once()->andReturn(array());
-        $this->subparser2->shouldReceive('parse')->with($this->executor)->once()->andReturn(array());
-        $this->subparser3->shouldReceive('parse')->with($this->executor)->once()->andReturn(array());
-        $this->parser->parse($this->executor);
+        $this->subparser1->shouldReceive('process')->with($this->executor)->once()->andReturn(array());
+        $this->subparser3->shouldReceive('process')->with($this->executor)->once()->andReturn(array());
+        $this->subparser2->shouldReceive('process')->with($this->executor)->once()->andReturn(array());
+        $this->parser->process($this->executor);
     }
     /**
      * @test
      */
     public function returnResultAsSumOfAllSubparsersResults()
     {
-        $this->subparser1->shouldReceive('parse')->andReturn(array('foo'));
-        $this->subparser2->shouldReceive('parse')->andReturn(array('bar', 'foo'));
-        $this->subparser3->shouldReceive('parse')->andReturn(array('bar', 'baz', 'goo'));
+        $this->subparser1->shouldReceive('process')->andReturn(array('foo'));
+        $this->subparser2->shouldReceive('process')->andReturn(array('bar', 'foo'));
+        $this->subparser3->shouldReceive('process')->andReturn(array('bar', 'baz', 'goo'));
         $expected = array('foo', 'bar', 'foo', 'bar', 'baz', 'goo');
-        $this->assertSame($expected, $this->parser->parse($this->executor));
+        $this->assertSame($expected, $this->parser->process($this->executor));
     }
     /**
      * @test
      */
     public function returnEmptyResultIfAllSubparsersReturnedEmptyResult()
     {
-        $this->subparser1->shouldReceive('parse')->andReturn(array());
-        $this->subparser2->shouldReceive('parse')->andReturn(array());
-        $this->subparser3->shouldReceive('parse')->andReturn(array());
+        $this->subparser1->shouldReceive('process')->andReturn(array());
+        $this->subparser2->shouldReceive('process')->andReturn(array());
+        $this->subparser3->shouldReceive('process')->andReturn(array());
         $expected = array();
-        $this->assertSame($expected, $this->parser->parse($this->executor));
+        $this->assertSame($expected, $this->parser->process($this->executor));
     }
 }

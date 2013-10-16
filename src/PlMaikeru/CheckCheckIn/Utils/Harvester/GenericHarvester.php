@@ -13,7 +13,7 @@ class GenericHarvester implements HarvesterInterface
         $this->subcomponents = array();
     }
 
-    public function harvest(Executor $executor = null)
+    public function process(Executor $executor = null)
     {
         return $this->collectResultsFromSubcomponents($this->getExecutor($executor));
     }
@@ -43,7 +43,7 @@ class GenericHarvester implements HarvesterInterface
     {
         $result = array();
         foreach ($this->subcomponents as $harvester) {
-            $result = array_merge($result, $harvester->harvest($executor));
+            $result = array_merge($result, $harvester->process($executor));
         }
         return $result;
     }

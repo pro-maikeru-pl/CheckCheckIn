@@ -33,31 +33,31 @@ class GenericHarvesterWithSubharvestersShould extends HarvesterTestCase
      */
     public function harvestUsingSameExecutorOnAllSubharvestersWhenHarvestCalled()
     {
-        $this->subharvester1->shouldReceive('harvest')->with($this->executor)->once()->andReturn(array());
-        $this->subharvester2->shouldReceive('harvest')->with($this->executor)->once()->andReturn(array());
-        $this->subharvester3->shouldReceive('harvest')->with($this->executor)->once()->andReturn(array());
-        $this->harvester->harvest($this->executor);
+        $this->subharvester1->shouldReceive('process')->with($this->executor)->once()->andReturn(array());
+        $this->subharvester2->shouldReceive('process')->with($this->executor)->once()->andReturn(array());
+        $this->subharvester3->shouldReceive('process')->with($this->executor)->once()->andReturn(array());
+        $this->harvester->process($this->executor);
     }
     /**
      * @test
      */
     public function returnResultAsSumOfAllSubharvestersResults()
     {
-        $this->subharvester1->shouldReceive('harvest')->andReturn(array('foo'));
-        $this->subharvester2->shouldReceive('harvest')->andReturn(array('bar', 'foo'));
-        $this->subharvester3->shouldReceive('harvest')->andReturn(array('bar', 'baz', 'goo'));
+        $this->subharvester1->shouldReceive('process')->andReturn(array('foo'));
+        $this->subharvester2->shouldReceive('process')->andReturn(array('bar', 'foo'));
+        $this->subharvester3->shouldReceive('process')->andReturn(array('bar', 'baz', 'goo'));
         $expected = array('foo', 'bar', 'foo', 'bar', 'baz', 'goo');
-        $this->assertSame($expected, $this->harvester->harvest($this->executor));
+        $this->assertSame($expected, $this->harvester->process($this->executor));
     }
     /**
      * @test
      */
     public function returnEmptyResultIfAllSubharvestersReturnedEmptyResult()
     {
-        $this->subharvester1->shouldReceive('harvest')->andReturn(array());
-        $this->subharvester2->shouldReceive('harvest')->andReturn(array());
-        $this->subharvester3->shouldReceive('harvest')->andReturn(array());
+        $this->subharvester1->shouldReceive('process')->andReturn(array());
+        $this->subharvester2->shouldReceive('process')->andReturn(array());
+        $this->subharvester3->shouldReceive('process')->andReturn(array());
         $expected = array();
-        $this->assertSame($expected, $this->harvester->harvest($this->executor));
+        $this->assertSame($expected, $this->harvester->process($this->executor));
     }
 }

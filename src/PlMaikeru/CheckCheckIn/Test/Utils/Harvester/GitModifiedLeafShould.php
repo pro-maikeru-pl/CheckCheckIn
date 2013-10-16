@@ -20,7 +20,7 @@ class GitModifiedLeafShould extends HarvesterTestCase
     {
         $execResult = array('foo');
         $this->executor->shouldReceive('exec')->with('git ls-files --modified')->once()->andReturn($execResult);
-        $this->assertSame($execResult, $this->getHarvester()->harvest($this->executor));
+        $this->assertSame($execResult, $this->getHarvester()->process($this->executor));
 
     }
     /**
@@ -29,6 +29,6 @@ class GitModifiedLeafShould extends HarvesterTestCase
      */
     public function throwExceptionIfNoExecutorPassed()
     {
-        $this->getHarvester()->harvest();
+        $this->getHarvester()->process();
     }
 }

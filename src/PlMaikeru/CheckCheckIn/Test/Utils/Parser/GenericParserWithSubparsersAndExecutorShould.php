@@ -28,8 +28,8 @@ class GenericParserWithSubparsersAndExecutorShould extends ParserTestCase
      */
     public function whenHarvestingUseExecutorPassedInConstructorIfNoOtherPassed()
     {
-        $this->subparser1->shouldReceive('parse')->with($this->executor)->once()->andReturn(array());
-        $this->parser->parse();
+        $this->subparser1->shouldReceive('process')->with($this->executor)->once()->andReturn(array());
+        $this->parser->process();
     }
     /**
      * @test
@@ -37,7 +37,7 @@ class GenericParserWithSubparsersAndExecutorShould extends ParserTestCase
     public function whenHarvestingIgnoreConstructorExecutorIfAnotherPassedToMethod()
     {
         $newExecutor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor\Executor');
-        $this->subparser1->shouldReceive('parse')->with($newExecutor)->once()->andReturn(array());
-        $this->parser->parse($newExecutor);
+        $this->subparser1->shouldReceive('process')->with($newExecutor)->once()->andReturn(array());
+        $this->parser->process($newExecutor);
     }
 }

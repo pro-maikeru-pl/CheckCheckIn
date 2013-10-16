@@ -14,7 +14,7 @@ class GenericParser extends Generic implements ParserInterface
         $this->subcomponents = array();
     }
 
-    public function parse(Executor $executor = null)
+    public function process(Executor $executor = null)
     {
         return $this->collectResultsFromSubcomponents($this->getExecutor($executor));
     }
@@ -44,7 +44,7 @@ class GenericParser extends Generic implements ParserInterface
     {
         $result = array();
         foreach ($this->subcomponents as $parser) {
-            $result = array_merge($result, $parser->parse($executor));
+            $result = array_merge($result, $parser->process($executor));
         }
         return $result;
     }

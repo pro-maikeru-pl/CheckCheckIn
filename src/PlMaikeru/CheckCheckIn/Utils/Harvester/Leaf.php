@@ -4,7 +4,7 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
 
 abstract class Leaf implements HarvesterInterface
 {
-    public function harvest(Executor $executor = null)
+    public function process(Executor $executor = null)
     {
         $this->throwExceptionIfNoExecutorPassed($executor);
 

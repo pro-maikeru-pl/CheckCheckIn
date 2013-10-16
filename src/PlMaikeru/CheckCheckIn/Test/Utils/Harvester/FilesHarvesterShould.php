@@ -33,10 +33,10 @@ class FilesHarvesterShould extends HarvesterTestCase
      */
     public function returnResultAsDistinctSumOfAllSubharvestersResults()
     {
-        $this->subharvester1->shouldReceive('harvest')->andReturn(array('foo'));
-        $this->subharvester2->shouldReceive('harvest')->andReturn(array('bar', 'foo'));
-        $this->subharvester3->shouldReceive('harvest')->andReturn(array('bar', 'baz', 'goo'));
+        $this->subharvester1->shouldReceive('process')->andReturn(array('foo'));
+        $this->subharvester2->shouldReceive('process')->andReturn(array('bar', 'foo'));
+        $this->subharvester3->shouldReceive('process')->andReturn(array('bar', 'baz', 'goo'));
         $expected = array('foo', 'bar', 'baz', 'goo');
-        $this->assertSame($expected, $this->harvester->harvest($this->executor));
+        $this->assertSame($expected, $this->harvester->process($this->executor));
     }
 }

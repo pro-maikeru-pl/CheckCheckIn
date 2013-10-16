@@ -3,5 +3,5 @@ namespace PlMaikeru\CheckCheckIn\Utils\Harvester;
 
 interface HarvesterInterface
 {
-    public function harvest();
+    public function process();
 }
