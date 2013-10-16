@@ -29,8 +29,8 @@ class GenericHarvesterShould extends HarvesterTestCase
         $harvester = $this->getHarvester();
         $subHarvester1 = $this->getHarvester();
         $subHarvester2 = $this->getHarvester();
-        $harvester->addSubharvester($subHarvester1);
-        $harvester->addSubharvester($subHarvester2);
+        $harvester->addSubcomponent($subHarvester1);
+        $harvester->addSubcomponent($subHarvester2);
         $expected = array($subHarvester1, $subHarvester2);
         $this->assertEquals($expected, $harvester->getSubcomponents());
     }
@@ -41,9 +41,9 @@ class GenericHarvesterShould extends HarvesterTestCase
     {
         $harvester = $this->getHarvester();
         $subHarvester1 = $this->getHarvester();
-        $harvester->addSubharvester($subHarvester1);
-        $harvester->addSubharvester($subHarvester1);
-        $harvester->addSubharvester($subHarvester1);
+        $harvester->addSubcomponent($subHarvester1);
+        $harvester->addSubcomponent($subHarvester1);
+        $harvester->addSubcomponent($subHarvester1);
         $expected = array($subHarvester1);
         $this->assertEquals($expected, $harvester->getSubcomponents());
     }

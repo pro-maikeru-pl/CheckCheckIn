@@ -29,8 +29,8 @@ class GenericParserShould extends ParserTestCase
         $parser = $this->getParser();
         $subParser1 = $this->getParser();
         $subParser2 = $this->getParser();
-        $parser->addSubparser($subParser1);
-        $parser->addSubparser($subParser2);
+        $parser->addSubcomponent($subParser1);
+        $parser->addSubcomponent($subParser2);
         $expected = array($subParser1, $subParser2);
         $this->assertEquals($expected, $parser->getSubcomponents());
     }
@@ -41,9 +41,9 @@ class GenericParserShould extends ParserTestCase
     {
         $parser = $this->getParser();
         $subParser1 = $this->getParser();
-        $parser->addSubparser($subParser1);
-        $parser->addSubparser($subParser1);
-        $parser->addSubparser($subParser1);
+        $parser->addSubcomponent($subParser1);
+        $parser->addSubcomponent($subParser1);
+        $parser->addSubcomponent($subParser1);
         $expected = array($subParser1);
         $this->assertEquals($expected, $parser->getSubcomponents());
     }

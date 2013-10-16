@@ -20,7 +20,7 @@ class GenericHarvesterWithSubharvestersAndExecutorShould extends HarvesterTestCa
     {
         $this->subharvester1 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Harvester\HarvesterInterface');
         $harvester = new GenericHarvester($this->executor);
-        $harvester->addSubharvester($this->subharvester1);
+        $harvester->addSubcomponent($this->subharvester1);
 
         return $harvester;
     }

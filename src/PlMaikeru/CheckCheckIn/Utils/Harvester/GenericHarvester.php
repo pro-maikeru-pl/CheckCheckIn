@@ -5,7 +5,7 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor,
 
 class GenericHarvester extends ExecutorAwareComposite implements HarvesterInterface
 {
-    public function addSubharvester(HarvesterInterface $subharvester)
+    public function addSubcomponent(HarvesterInterface $subharvester)
     {
         foreach ($this->subcomponents as $existing) {
             if ($existing === $subharvester) {

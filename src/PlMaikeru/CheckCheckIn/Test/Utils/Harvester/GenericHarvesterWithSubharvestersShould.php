@@ -24,9 +24,9 @@ class GenericHarvesterWithSubharvestersShould extends HarvesterTestCase
         $this->subharvester2 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Harvester\HarvesterInterface');
         $this->subharvester3 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Harvester\HarvesterInterface');
         $harvester = new GenericHarvester();
-        $harvester->addSubharvester($this->subharvester1);
-        $harvester->addSubharvester($this->subharvester2);
-        $harvester->addSubharvester($this->subharvester3);
+        $harvester->addSubcomponent($this->subharvester1);
+        $harvester->addSubcomponent($this->subharvester2);
+        $harvester->addSubcomponent($this->subharvester3);
         return $harvester;
     }
     /**

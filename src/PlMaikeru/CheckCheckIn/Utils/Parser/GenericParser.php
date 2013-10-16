@@ -5,7 +5,7 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor,
 
 class GenericParser extends ExecutorAwareComposite implements ParserInterface
 {
-    public function addSubparser(ParserInterface $subparser)
+    public function addSubcomponent(ParserInterface $subparser)
     {
         foreach ($this->subcomponents as $existing) {
             if ($existing === $subparser) {
