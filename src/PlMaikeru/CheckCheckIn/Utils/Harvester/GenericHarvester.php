@@ -5,12 +5,12 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
 class GenericHarvester implements HarvesterInterface
 {
     protected $executor;
-    protected $subharvesters;
+    protected $subcomponents;
 
     public function __construct(Executor $executor = null)
     {
         $this->executor = $executor;
-        $this->subharvesters = array();
+        $this->subcomponents = array();
     }
 
     public function harvest(Executor $executor = null)
@@ -20,17 +20,17 @@ class GenericHarvester implements HarvesterInterface
 
     public function addSubharvester(HarvesterInterface $subharvester)
     {
-        foreach ($this->subharvesters as $existing) {
+        foreach ($this->subcomponents as $existing) {
             if ($existing === $subharvester) {
                 return;
             }
         }
-        $this->subharvesters[] = $subharvester;
+        $this->subcomponents[] = $subharvester;
     }
 
-    public function getSubharvesters()
+    public function getSubcomponents()
     {
-        return $this->subharvesters;
+        return $this->subcomponents;
     }
 
 
@@ -42,7 +42,7 @@ class GenericHarvester implements HarvesterInterface
     private function collectResultsFromSubharvesters(Executor $executor)
     {
         $result = array();
-        foreach ($this->subharvesters as $harvester) {
+        foreach ($this->subcomponents as $harvester) {
             $result = array_merge($result, $harvester->harvest($executor));
         }
         return $result;

@@ -18,7 +18,7 @@ class GenericHarvesterShould extends HarvesterTestCase
     public function haveNoSubharvestersInitially()
     {
         $harvester = $this->getHarvester();
-        $this->assertCount(0, $harvester->getSubharvesters());
+        $this->assertCount(0, $harvester->getSubcomponents());
     }
     /**
      * @test
@@ -31,7 +31,7 @@ class GenericHarvesterShould extends HarvesterTestCase
         $harvester->addSubharvester($subHarvester1);
         $harvester->addSubharvester($subHarvester2);
         $expected = array($subHarvester1, $subHarvester2);
-        $this->assertEquals($expected, $harvester->getSubharvesters());
+        $this->assertEquals($expected, $harvester->getSubcomponents());
     }
     /**
      * @test
@@ -44,7 +44,7 @@ class GenericHarvesterShould extends HarvesterTestCase
         $harvester->addSubharvester($subHarvester1);
         $harvester->addSubharvester($subHarvester1);
         $expected = array($subHarvester1);
-        $this->assertEquals($expected, $harvester->getSubharvesters());
+        $this->assertEquals($expected, $harvester->getSubcomponents());
     }
     /**
      * @test

@@ -25,7 +25,7 @@ class HarvesterBuilderShould extends \PHPUnit_Framework_TestCase
     {
         $harvester = $this->builder->buildGitStaged();
         $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\FilesHarvester', $harvester);
-        $subharvesters = $harvester->getSubharvesters();
+        $subharvesters = $harvester->getSubcomponents();
         $this->assertCount(1, $subharvesters);
         $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\GitStagedLeaf', array_pop($subharvesters));
     }
@@ -44,7 +44,7 @@ class HarvesterBuilderShould extends \PHPUnit_Framework_TestCase
     {
         $harvester = $this->builder->buildGitModified();
         $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\FilesHarvester', $harvester);
-        $subharvesters = $harvester->getSubharvesters();
+        $subharvesters = $harvester->getSubcomponents();
         $this->assertCount(1, $subharvesters);
         $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\GitModifiedLeaf', array_pop($subharvesters));
     }
@@ -55,7 +55,7 @@ class HarvesterBuilderShould extends \PHPUnit_Framework_TestCase
     {
         $harvester = $this->builder->buildGitModifiedAndStaged();
         $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\FilesHarvester', $harvester);
-        $subharvesters = $harvester->getSubharvesters();
+        $subharvesters = $harvester->getSubcomponents();
         $this->assertCount(2, $subharvesters);
         $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\GitStagedLeaf', array_pop($subharvesters));
         $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\GitModifiedLeaf', array_pop($subharvesters));
