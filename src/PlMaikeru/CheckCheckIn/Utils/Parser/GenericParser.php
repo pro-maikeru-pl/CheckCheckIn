@@ -7,11 +7,6 @@ class GenericParser extends ExecutorAwareComposite implements ParserInterface
 {
     public function addSubcomponent(ParserInterface $subparser)
     {
-        foreach ($this->subcomponents as $existing) {
-            if ($existing === $subparser) {
-                return;
-            }
-        }
-        $this->subcomponents[] = $subparser;
+        return parent::addSubcomponent($subparser);
     }
 }

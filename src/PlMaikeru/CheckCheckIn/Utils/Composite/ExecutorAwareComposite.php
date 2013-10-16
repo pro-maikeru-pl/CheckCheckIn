@@ -19,6 +19,16 @@ abstract class ExecutorAwareComposite {
         return $this->subcomponents;
     }
 
+    protected function addSubcomponent($subcomponent)
+    {
+        foreach ($this->subcomponents as $existing) {
+            if ($existing === $subcomponent) {
+                return;
+            }
+        }
+        $this->subcomponents[] = $subcomponent;
+    }
+
     public function getExecutor(Executor $executor = null)
     {
         $result = (null === $executor) ? $this->executor : $executor;

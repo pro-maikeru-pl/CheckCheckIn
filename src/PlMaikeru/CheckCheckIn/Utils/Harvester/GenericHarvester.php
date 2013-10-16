@@ -7,12 +7,7 @@ class GenericHarvester extends ExecutorAwareComposite implements HarvesterInterf
 {
     public function addSubcomponent(HarvesterInterface $subharvester)
     {
-        foreach ($this->subcomponents as $existing) {
-            if ($existing === $subharvester) {
-                return;
-            }
-        }
-        $this->subcomponents[] = $subharvester;
+        return parent::addSubcomponent($subharvester);
     }
 
 
