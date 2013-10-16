@@ -5,11 +5,6 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor,
 
 class GenericHarvester extends ExecutorAwareComposite implements HarvesterInterface
 {
-    public function process(Executor $executor = null)
-    {
-        return $this->collectResultsFromSubcomponents($this->getExecutor($executor));
-    }
-
     public function addSubharvester(HarvesterInterface $subharvester)
     {
         foreach ($this->subcomponents as $existing) {
@@ -20,15 +15,6 @@ class GenericHarvester extends ExecutorAwareComposite implements HarvesterInterf
         $this->subcomponents[] = $subharvester;
     }
 
-
-    private function collectResultsFromSubcomponents(Executor $executor)
-    {
-        $result = array();
-        foreach ($this->subcomponents as $harvester) {
-            $result = array_merge($result, $harvester->process($executor));
-        }
-        return $result;
-    }
 
 
 }

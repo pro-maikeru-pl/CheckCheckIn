@@ -24,4 +24,23 @@ abstract class ExecutorAwareComposite {
         $result = (null === $executor) ? $this->executor : $executor;
         return $result;
     }
+
+    public function process(Executor $executor = null)
+    {
+        return $this->collectResultsFromSubcomponents($this->getExecutor($executor));
+    }
+
+
+
+    protected function collectResultsFromSubcomponents(Executor $executor)
+    {
+        $result = array();
+        foreach ($this->subcomponents as $parser) {
+            $result = array_merge($result, $parser->process($executor));
+        }
+        return $result;
+    }
+
+
+
 }
