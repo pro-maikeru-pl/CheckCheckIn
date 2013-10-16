@@ -15,7 +15,7 @@ class GenericHarvester implements HarvesterInterface
 
     public function harvest(Executor $executor = null)
     {
-        return $this->collectResultsFromSubharvesters($this->getExecutor($executor));
+        return $this->collectResultsFromSubcomponents($this->getExecutor($executor));
     }
 
     public function addSubharvester(HarvesterInterface $subharvester)
@@ -39,7 +39,7 @@ class GenericHarvester implements HarvesterInterface
         $result = (null === $executor) ? $this->executor : $executor;
         return $result;
     }
-    private function collectResultsFromSubharvesters(Executor $executor)
+    private function collectResultsFromSubcomponents(Executor $executor)
     {
         $result = array();
         foreach ($this->subcomponents as $harvester) {
