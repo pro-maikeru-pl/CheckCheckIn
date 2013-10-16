@@ -3,6 +3,6 @@
 namespace PlMaikeru\CheckCheckIn\Utils\Composite;
 
 
-abstract class Generic {
+abstract class ExecutorAwareComposite {
 
 }

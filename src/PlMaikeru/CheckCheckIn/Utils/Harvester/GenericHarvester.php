@@ -1,8 +1,9 @@
 <?php
 namespace PlMaikeru\CheckCheckIn\Utils\Harvester;
-use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
+use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor,
+    \PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite;
 
-class GenericHarvester implements HarvesterInterface
+class GenericHarvester extends ExecutorAwareComposite implements HarvesterInterface
 {
     protected $executor;
     protected $subcomponents;

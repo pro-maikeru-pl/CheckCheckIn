@@ -1,9 +1,9 @@
 <?php
 namespace PlMaikeru\CheckCheckIn\Utils\Parser;
 use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor,
-    \PlMaikeru\CheckCheckIn\Utils\Composite\Generic;
+    \PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite;
 
-class GenericParser extends Generic implements ParserInterface
+class GenericParser extends ExecutorAwareComposite implements ParserInterface
 {
     protected $executor;
     protected $subcomponents;
