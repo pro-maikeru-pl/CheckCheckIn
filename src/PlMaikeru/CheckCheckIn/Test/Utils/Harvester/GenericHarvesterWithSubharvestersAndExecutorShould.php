@@ -4,6 +4,7 @@ use \PlMaikeru\CheckCheckIn\Utils\Harvester\GenericHarvester;
 use \Mockery as m;
 /**
  * @covers \PlMaikeru\CheckCheckIn\Utils\Harvester\GenericHarvester
+ * @covers \PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite
  *
  */
 class GenericHarvesterWithSubharvestersAndExecutorShould extends HarvesterTestCase

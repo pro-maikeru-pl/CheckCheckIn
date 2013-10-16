@@ -5,14 +5,7 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor,
 
 class GenericParser extends ExecutorAwareComposite implements ParserInterface
 {
-    protected $executor;
-    protected $subcomponents;
 
-    public function __construct(Executor $executor = null)
-    {
-        $this->executor = $executor;
-        $this->subcomponents = array();
-    }
 
     public function process(Executor $executor = null)
     {
@@ -29,17 +22,6 @@ class GenericParser extends ExecutorAwareComposite implements ParserInterface
         $this->subcomponents[] = $subparser;
     }
 
-    public function getSubcomponents()
-    {
-        return $this->subcomponents;
-    }
-
-
-    public function getExecutor(Executor $executor = null)
-    {
-        $result = (null === $executor) ? $this->executor : $executor;
-        return $result;
-    }
     private function collectResultsFromSubcomponents(Executor $executor)
     {
         $result = array();

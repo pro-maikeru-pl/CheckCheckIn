@@ -4,6 +4,7 @@ use \PlMaikeru\CheckCheckIn\Utils\Parser\GenericParser;
 use \Mockery as m;
 /**
  * @covers \PlMaikeru\CheckCheckIn\Utils\Parser\GenericParser
+ * @covers \PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite
  *
  */
 class GenericParserWithSubparsersAndExecutorShould extends ParserTestCase
