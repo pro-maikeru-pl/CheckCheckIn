@@ -18,7 +18,7 @@ class GenericParserShould extends ParserTestCase
     public function haveNoSubParsersInitially()
     {
         $parser = $this->getParser();
-        $this->assertCount(0, $parser->getSubparsers());
+        $this->assertCount(0, $parser->getSubcomponents());
     }
     /**
      * @test
@@ -31,7 +31,7 @@ class GenericParserShould extends ParserTestCase
         $parser->addSubparser($subParser1);
         $parser->addSubparser($subParser2);
         $expected = array($subParser1, $subParser2);
-        $this->assertEquals($expected, $parser->getSubparsers());
+        $this->assertEquals($expected, $parser->getSubcomponents());
     }
     /**
      * @test
@@ -44,7 +44,7 @@ class GenericParserShould extends ParserTestCase
         $parser->addSubparser($subParser1);
         $parser->addSubparser($subParser1);
         $expected = array($subParser1);
-        $this->assertEquals($expected, $parser->getSubparsers());
+        $this->assertEquals($expected, $parser->getSubcomponents());
     }
     /**
      * @test

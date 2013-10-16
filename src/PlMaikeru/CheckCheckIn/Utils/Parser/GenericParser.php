@@ -29,7 +29,7 @@ class GenericParser extends Generic implements ParserInterface
         $this->subcomponents[] = $subparser;
     }
 
-    public function getSubparsers()
+    public function getSubcomponents()
     {
         return $this->subcomponents;
     }
