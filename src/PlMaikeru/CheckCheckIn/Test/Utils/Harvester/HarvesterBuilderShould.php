@@ -11,13 +11,6 @@ use \Mockery as m;
  */
 class HarvesterBuilderShould extends \PHPUnit_Framework_TestCase
 {
-    private $builder;
-    private $executor;
-    public function setUp()
-    {
-        $this->executor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor\Executor');
-        $this->builder = new HarvesterBuilder($this->executor);
-    }
     /**
      * @test
      */
@@ -59,6 +52,16 @@ class HarvesterBuilderShould extends \PHPUnit_Framework_TestCase
         $this->assertCount(2, $subharvesters);
         $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\GitStagedLeaf', array_pop($subharvesters));
         $this->assertInstanceOf('\PlMaikeru\CheckCheckIn\Utils\Harvester\GitModifiedLeaf', array_pop($subharvesters));
+    }
+
+
+
+    private $builder;
+    private $executor;
+    public function setUp()
+    {
+        $this->executor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor\Executor');
+        $this->builder = new HarvesterBuilder($this->executor);
     }
 }
 

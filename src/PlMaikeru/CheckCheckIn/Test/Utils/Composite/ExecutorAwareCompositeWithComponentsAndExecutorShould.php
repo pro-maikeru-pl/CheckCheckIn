@@ -6,21 +6,7 @@ use \Mockery as m;
  */
 class ExecutorAwareCompositeWithComponentsAndExecutorShould extends CompositeTestCase
 {
-    private $composite;
-    private $component;
-    public function setUp()
-    {
-        parent::setUp();
-        $this->composite = $this->getComposite();
-    }
-    protected function getComposite()
-    {
-        $composite = parent::getComposite();
-        $this->component = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite');
-        $composite->addComponent($this->component);
 
-        return $composite;
-    }
     /**
      * @test
      */
@@ -37,5 +23,24 @@ class ExecutorAwareCompositeWithComponentsAndExecutorShould extends CompositeTes
         $newExecutor = m::mock('\PlMaikeru\CheckCheckIn\Utils\Executor\Executor');
         $this->component->shouldReceive('process')->with($newExecutor)->once()->andReturn(array());
         $this->composite->process($newExecutor);
+    }
+
+
+
+
+    private $composite;
+    private $component;
+    public function setUp()
+    {
+        parent::setUp();
+        $this->composite = $this->getComposite();
+    }
+    protected function getComposite()
+    {
+        $composite = parent::getComposite();
+        $this->component = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite');
+        $composite->addComponent($this->component);
+
+        return $composite;
     }
 }

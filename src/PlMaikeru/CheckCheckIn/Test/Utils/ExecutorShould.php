@@ -8,11 +8,6 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
  */
 class ExecutorShould extends \PHPUnit_Framework_TestCase
 {
-    private $executor;
-    public function setUp()
-    {
-        $this->executor = new Executor();
-    }
     /**
      * @test
      */
@@ -35,5 +30,12 @@ class ExecutorShould extends \PHPUnit_Framework_TestCase
     public function throwExceptionWhenCommandFailed()
     {
         $this->executor->exec('thisCommandIsWrong');
+    }
+
+
+    private $executor;
+    public function setUp()
+    {
+        $this->executor = new Executor();
     }
 }

@@ -7,26 +7,6 @@ use \Mockery as m;
  */
 class ExecutorAwareCompositeWithComponentsShould extends CompositeTestCase
 {
-    private $composite;
-    private $component1;
-    private $component2;
-    private $component3;
-    public function setUp()
-    {
-        parent::setUp();
-        $this->composite = $this->getComposite();
-    }
-    protected function getComposite()
-    {
-        $composite = parent::getComposite();
-        $this->component1 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite');
-        $this->component2 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite');
-        $this->component3 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite');
-        $composite->addComponent($this->component1);
-        $composite->addComponent($this->component2);
-        $composite->addComponent($this->component3);
-        return $composite;
-    }
     /**
      * @test
      */
@@ -58,5 +38,28 @@ class ExecutorAwareCompositeWithComponentsShould extends CompositeTestCase
         $this->component3->shouldReceive('process')->andReturn(array());
         $expected = array();
         $this->assertSame($expected, $this->composite->process($this->executor));
+    }
+
+
+
+    private $composite;
+    private $component1;
+    private $component2;
+    private $component3;
+    public function setUp()
+    {
+        parent::setUp();
+        $this->composite = $this->getComposite();
+    }
+    protected function getComposite()
+    {
+        $composite = parent::getComposite();
+        $this->component1 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite');
+        $this->component2 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite');
+        $this->component3 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite');
+        $composite->addComponent($this->component1);
+        $composite->addComponent($this->component2);
+        $composite->addComponent($this->component3);
+        return $composite;
     }
 }

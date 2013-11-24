@@ -9,15 +9,6 @@ use \Mockery as m;
  */
 class FilesHarvesterShould extends CompositeTestCase
 {
-    private $harvester;
-    private $subharvester1;
-    private $subharvester2;
-    private $subharvester3;
-    public function setUp()
-    {
-        parent::setUp();
-        $this->harvester = $this->getComposite();
-    }
     protected function getComposite()
     {
         $this->subharvester1 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComponent');
@@ -39,5 +30,17 @@ class FilesHarvesterShould extends CompositeTestCase
         $this->subharvester3->shouldReceive('process')->andReturn(array('bar', 'baz', 'goo'));
         $expected = array('foo', 'bar', 'baz', 'goo');
         $this->assertSame($expected, $this->harvester->process($this->executor));
+    }
+
+
+
+    private $harvester;
+    private $subharvester1;
+    private $subharvester2;
+    private $subharvester3;
+    public function setUp()
+    {
+        parent::setUp();
+        $this->harvester = $this->getComposite();
     }
 }

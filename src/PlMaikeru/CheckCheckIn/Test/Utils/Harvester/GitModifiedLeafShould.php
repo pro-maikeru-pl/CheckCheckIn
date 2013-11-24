@@ -11,12 +11,6 @@ use \Mockery as m;
  */
 class GitModifiedLeafShould extends CompositeTestCase
 {
-    protected $leaf;
-    public function setUp()
-    {
-        parent::setUp();
-        $this->leaf = new GitModifiedLeaf();
-    }
     /**
      * @test
      */
@@ -34,5 +28,12 @@ class GitModifiedLeafShould extends CompositeTestCase
     public function throwExceptionIfNoExecutorPassed()
     {
         $this->leaf->process();
+    }
+
+    protected $leaf;
+    public function setUp()
+    {
+        parent::setUp();
+        $this->leaf = new GitModifiedLeaf();
     }
 }
