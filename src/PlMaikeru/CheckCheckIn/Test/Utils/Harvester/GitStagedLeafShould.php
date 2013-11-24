@@ -3,7 +3,7 @@ namespace PlMaikeru\CheckCheckIn\Test\Utils\Harvester;
 use \PlMaikeru\CheckCheckIn\Utils\Harvester\GitStagedLeaf;
 use \Mockery as m;
 /**
- * @covers \PlMaikeru\CheckCheckIn\Utils\Harvester\Leaf
+ * @covers \PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite
  * @covers \PlMaikeru\CheckCheckIn\Utils\Harvester\GitStagedLeaf
  *
  */

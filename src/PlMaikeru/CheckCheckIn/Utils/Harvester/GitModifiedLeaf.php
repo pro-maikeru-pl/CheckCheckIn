@@ -1,8 +1,8 @@
 <?php
 namespace PlMaikeru\CheckCheckIn\Utils\Harvester;
-use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
+use PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComponent;
 
-class GitModifiedLeaf extends Leaf
+class GitModifiedLeaf extends ExecutorAwareComponent
 {
     public function getCommand()
     {
