@@ -18,6 +18,7 @@
         <log type="coverage-clover" target="build/test/coverage.xml"/>
         <log type="junit" target="build/test/logfile.xml" logIncompleteSkipped="false"/>
         <log type="testdox-html" target="build/test/testdox.html"/>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
     </logging>
 
     <filter>
