@@ -1,8 +1,9 @@
 <?php
 namespace PlMaikeru\CheckCheckIn\Utils\Harvester;
+use PlMaikeru\CheckCheckIn\Utils\Composite\Processable;
 use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
 
-abstract class Leaf implements HarvesterInterface
+abstract class Leaf implements Processable
 {
     public function process(Executor $executor = null)
     {

@@ -19,7 +19,7 @@ abstract class ExecutorAwareComposite {
         return $this->subcomponents;
     }
 
-    protected function addComponent(Processable $subcomponent)
+    public function addComponent($subcomponent)
     {
         foreach ($this->subcomponents as $existing) {
             if ($existing === $subcomponent) {
