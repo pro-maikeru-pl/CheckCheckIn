@@ -14,7 +14,7 @@ abstract class ExecutorAwareComposite {
         $this->subcomponents = array();
     }
 
-    public function getSubcomponents()
+    public function getComponents()
     {
         return $this->subcomponents;
     }
