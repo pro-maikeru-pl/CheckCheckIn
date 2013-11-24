@@ -4,7 +4,7 @@ namespace PlMaikeru\CheckCheckIn\Utils\Composite;
 
 use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
 
-abstract class ExecutorAwareComposite {
+class ExecutorAwareComposite implements Processable {
     protected $executor;
     protected $subcomponents;
 
@@ -19,7 +19,7 @@ abstract class ExecutorAwareComposite {
         return $this->subcomponents;
     }
 
-    public function addComponent($subcomponent)
+    public function addComponent(Processable $subcomponent)
     {
         foreach ($this->subcomponents as $existing) {
             if ($existing === $subcomponent) {

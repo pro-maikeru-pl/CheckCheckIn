@@ -1,8 +1,9 @@
 <?php
 namespace PlMaikeru\CheckCheckIn\Utils\Harvester;
+use PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite;
 use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
 
-class FilesHarvester extends GenericHarvester
+class FilesHarvester extends ExecutorAwareComposite
 {
     public function process(Executor $executor = null)
     {

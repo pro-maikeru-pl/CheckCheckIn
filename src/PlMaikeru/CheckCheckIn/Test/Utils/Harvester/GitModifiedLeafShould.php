@@ -1,17 +1,21 @@
 <?php
 namespace PlMaikeru\CheckCheckIn\Test\Utils\Harvester;
+use PlMaikeru\CheckCheckIn\Test\Utils\Composite\CompositeTestCase;
 use \PlMaikeru\CheckCheckIn\Utils\Harvester\GitModifiedLeaf;
 use \Mockery as m;
 /**
- * @covers \PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComposite
- * @covers \PlMaikeru\CheckCheckIn\Utils\Harvester\GitModifiedLeaf
+ * Class GitModifiedLeafShould.
  *
+ * @covers \PlMaikeru\CheckCheckIn\Utils\Harvester\GitModifiedLeaf
+ * @covers \PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComponent
  */
-class GitModifiedLeafShould extends HarvesterTestCase
+class GitModifiedLeafShould extends CompositeTestCase
 {
-    protected function getHarvester()
+    protected $leaf;
+    public function setUp()
     {
-        return new GitModifiedLeaf();
+        parent::setUp();
+        $this->leaf = new GitModifiedLeaf();
     }
     /**
      * @test
@@ -20,7 +24,7 @@ class GitModifiedLeafShould extends HarvesterTestCase
     {
         $execResult = array('foo');
         $this->executor->shouldReceive('exec')->with('git ls-files --modified')->once()->andReturn($execResult);
-        $this->assertSame($execResult, $this->getHarvester()->process($this->executor));
+        $this->assertSame($execResult, $this->leaf->process($this->executor));
 
     }
     /**
@@ -29,6 +33,6 @@ class GitModifiedLeafShould extends HarvesterTestCase
      */
     public function throwExceptionIfNoExecutorPassed()
     {
-        $this->getHarvester()->process();
+        $this->leaf->process();
     }
 }

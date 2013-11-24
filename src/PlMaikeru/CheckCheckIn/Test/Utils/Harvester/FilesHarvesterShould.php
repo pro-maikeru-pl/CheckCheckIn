@@ -1,12 +1,13 @@
 <?php
 namespace PlMaikeru\CheckCheckIn\Test\Utils\Harvester;
+use PlMaikeru\CheckCheckIn\Test\Utils\Composite\CompositeTestCase;
 use \PlMaikeru\CheckCheckIn\Utils\Harvester\FilesHarvester;
 use \Mockery as m;
 /**
  * @covers \PlMaikeru\CheckCheckIn\Utils\Harvester\FilesHarvester
  *
  */
-class FilesHarvesterShould extends HarvesterTestCase
+class FilesHarvesterShould extends CompositeTestCase
 {
     private $harvester;
     private $subharvester1;
@@ -15,13 +16,13 @@ class FilesHarvesterShould extends HarvesterTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->harvester = $this->getHarvester();
+        $this->harvester = $this->getComposite();
     }
-    protected function getHarvester()
+    protected function getComposite()
     {
-        $this->subharvester1 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Harvester\HarvesterInterface');
-        $this->subharvester2 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Harvester\HarvesterInterface');
-        $this->subharvester3 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Harvester\HarvesterInterface');
+        $this->subharvester1 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComponent');
+        $this->subharvester2 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComponent');
+        $this->subharvester3 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComponent');
         $harvester = new FilesHarvester();
         $harvester->addComponent($this->subharvester1);
         $harvester->addComponent($this->subharvester2);
