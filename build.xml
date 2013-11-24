@@ -5,7 +5,7 @@
 
     <!-- composer -->
     <target name="installComposer" depends="installComposer.check" unless="installComposer.pharExists" description="Installs composer.phar">
-        <exec executable="/bin/bash">
+        <exec executable="/bin/bash" failonerror="true">
             <arg value="-c" />
             <arg value="curl -s https://getcomposer.org/installer | php" />
         </exec>
@@ -18,14 +18,14 @@
 
     <!-- vendor -->
     <target name="installVendor" description="Dependencies">
-        <exec executable="php">
+        <exec executable="php" failonerror="true">
             <arg value="composer.phar" />
             <arg value="install" />
         </exec>
     </target>
 
     <target name="installVendorDev" description="Dependencies with development dependencies">
-        <exec executable="php">
+        <exec executable="php" failonerror="true">
             <arg value="composer.phar" />
             <arg value="install" />
             <arg value="--dev" />
@@ -34,7 +34,7 @@
     <!-- /vendor -->
 
     <target name="test" description="Runs tests">
-        <exec executable="vendor/bin/phpunit">
+        <exec executable="vendor/bin/phpunit" failonerror="true">
         </exec>
     </target>
 
