@@ -6,9 +6,9 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor,
 
 class GenericHarvester extends ExecutorAwareComposite implements HarvesterInterface
 {
-    public function addSubcomponent(Processable $subharvester)
+    public function addComponent(Processable $subharvester)
     {
-        return parent::addSubcomponent($subharvester);
+        return parent::addComponent($subharvester);
     }
 
 

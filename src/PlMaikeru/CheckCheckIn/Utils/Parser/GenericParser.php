@@ -6,8 +6,9 @@ use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor,
 
 class GenericParser extends ExecutorAwareComposite implements ParserInterface
 {
-    public function addSubcomponent(Processable $subparser)
+    public function addComponent(Processable $subparser)
     {
-        return parent::addSubcomponent($subparser);
+        return parent::addComponent($subparser);
     }
+
 }

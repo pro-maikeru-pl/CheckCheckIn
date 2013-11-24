@@ -14,22 +14,22 @@ class HarvesterBuilder
     public function buildGitStaged()
     {
         $harvester = $this->prepareHarvester();
-        $harvester->addSubcomponent(new GitStagedLeaf());
+        $harvester->addComponent(new GitStagedLeaf());
         return $harvester;
     }
 
     public function buildGitModified()
     {
         $harvester = $this->prepareHarvester();
-        $harvester->addSubcomponent(new GitModifiedLeaf());
+        $harvester->addComponent(new GitModifiedLeaf());
         return $harvester;
     }
 
     public function buildGitModifiedAndStaged()
     {
         $harvester = $this->prepareHarvester();
-        $harvester->addSubcomponent(new GitModifiedLeaf());
-        $harvester->addSubcomponent(new GitStagedLeaf());
+        $harvester->addComponent(new GitModifiedLeaf());
+        $harvester->addComponent(new GitStagedLeaf());
         return $harvester;
     }
 

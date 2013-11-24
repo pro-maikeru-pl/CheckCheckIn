@@ -24,9 +24,9 @@ class GenericParserWithSubparsersShould extends ParserTestCase
         $this->subparser2 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Parser\ParserInterface');
         $this->subparser3 = m::mock('\PlMaikeru\CheckCheckIn\Utils\Parser\ParserInterface');
         $parser = new GenericParser();
-        $parser->addSubcomponent($this->subparser1);
-        $parser->addSubcomponent($this->subparser2);
-        $parser->addSubcomponent($this->subparser3);
+        $parser->addComponent($this->subparser1);
+        $parser->addComponent($this->subparser2);
+        $parser->addComponent($this->subparser3);
         return $parser;
     }
     /**
