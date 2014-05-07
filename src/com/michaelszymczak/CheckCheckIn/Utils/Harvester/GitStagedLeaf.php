@@ -1,6 +1,6 @@
 <?php
-namespace PlMaikeru\CheckCheckIn\Utils\Harvester;
-use PlMaikeru\CheckCheckIn\Utils\Composite\ExecutorAwareComponent;
+namespace com\michaelszymczak\CheckCheckIn\Utils\Harvester;
+use com\michaelszymczak\CheckCheckIn\Utils\Composite\ExecutorAwareComponent;
 
 class GitStagedLeaf extends ExecutorAwareComponent
 {

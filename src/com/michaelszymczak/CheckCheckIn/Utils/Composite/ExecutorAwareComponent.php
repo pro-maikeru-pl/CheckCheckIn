@@ -1,6 +1,6 @@
 <?php
-namespace PlMaikeru\CheckCheckIn\Utils\Composite;
-use \PlMaikeru\CheckCheckIn\Utils\Executor\Executor;
+namespace com\michaelszymczak\CheckCheckIn\Utils\Composite;
+use \com\michaelszymczak\CheckCheckIn\Utils\Executor\Executor;
 
 abstract class ExecutorAwareComponent implements Processable
 {
